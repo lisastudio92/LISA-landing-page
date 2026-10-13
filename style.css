@@ -20,15 +20,15 @@
 
 /* Change a color here and it changes everywhere on the page */
 :root {
-  --bg: #0b0b14;
-  --bg-alt: #10101c;
-  --surface: #171726;
+  --bg: #15202b;
+  --bg-alt: #1a2733;
+  --surface: #1e2c3a;
   --border: rgba(255, 255, 255, 0.08);
   --text: #f4f4fa;
   --muted: #b3b3c7;
   --accent: #c4b5fd;
   --cyan: #22d3ee;
-  --gradient: linear-gradient(135deg, #7c3aed, #db2777);
+  --gradient: linear-gradient(135deg, #7c3aed, #2563a8);
   --radius: 20px;
 }
 
@@ -101,7 +101,7 @@ a:focus-visible, button:focus-visible {
   color: #fff;
   box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
 }
-.btn-primary:hover { box-shadow: 0 12px 32px rgba(219, 39, 119, 0.45); }
+.btn-primary:hover { box-shadow: 0 12px 32px rgba(37, 99, 168, 0.45); }
 
 .btn-secondary {
   border: 1.5px solid rgba(255, 255, 255, 0.3);
@@ -125,7 +125,7 @@ a:focus-visible, button:focus-visible {
   position: sticky;            /* stays at the top while scrolling */
   top: 0;
   z-index: 100;
-  background: rgba(11, 11, 20, 0.85);
+  background: rgba(21, 32, 43, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -147,7 +147,8 @@ a:focus-visible, button:focus-visible {
   display: grid;
   place-items: center;
 }
-.logo-mark svg { width: 20px; height: 20px; color: #fff; }
+   .logo-mark svg { display: none; }
+   .logo-mark { background: #fff url("images/app-icon.png") center / cover no-repeat; }
 .logo-text { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.05em; }
 
 .nav-menu { display: flex; align-items: center; gap: 32px; }
@@ -210,7 +211,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .gradient-text {
-  background-image: linear-gradient(135deg, #a78bfa, #f472b6, #22d3ee);
+  background-image: linear-gradient(135deg, #a78bfa, #60a5fa, #22d3ee);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -242,7 +243,7 @@ a:focus-visible, button:focus-visible {
   height: 340px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.55), rgba(236, 72, 153, 0.2) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.55), rgba(37, 99, 168, 0.2) 50%, transparent 70%);
   filter: blur(40px);
 }
 
@@ -250,9 +251,9 @@ a:focus-visible, button:focus-visible {
   position: relative;
   width: 260px;
   aspect-ratio: 9 / 18.5;
-  border: 8px solid #26263f;
+  border: 8px solid #2c3e50;
   border-radius: 42px;
-  background: linear-gradient(180deg, #1c1638, #0e0e1c);
+  background: linear-gradient(180deg, #1b2b45, #111b26);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
   animation: float 6s ease-in-out infinite;
 }
@@ -264,7 +265,7 @@ a:focus-visible, button:focus-visible {
   width: 70px;
   height: 18px;
   border-radius: 12px;
-  background: #0b0b14;
+  background: #15202b;
 }
 .phone-screen {
   height: 100%;
@@ -301,7 +302,17 @@ a:focus-visible, button:focus-visible {
 }
 .ps-play svg { color: #1a1033; fill: currentColor; }
 
-/* --- Small floating cards around the phone --- */
+   /* --- Your app preview image in the hero --- */
+   .hero-image {
+     position: relative;
+     width: min(100%, 320px);
+     height: auto;
+     border-radius: 28px;
+     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+     animation: float 6s ease-in-out infinite;
+   }
+
+   /* --- Small floating cards around the preview --- */
 .float-card {
   position: absolute;
   display: flex;
@@ -309,13 +320,13 @@ a:focus-visible, button:focus-visible {
   gap: 10px;
   padding: 10px 16px;
   border-radius: 16px;
-  background: rgba(23, 23, 38, 0.92);
+  background: rgba(30, 44, 58, 0.92);
   border: 1px solid var(--border);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   font-size: 0.85rem;
   font-weight: 600;
 }
-.float-card svg { width: 20px; height: 20px; color: #f472b6; }
+.float-card svg { width: 20px; height: 20px; color: #60a5fa; }
 .float-one { top: 14%; left: -4%; animation: float 5s ease-in-out infinite; }
 .float-two { bottom: 16%; right: -6%; animation: float 7s ease-in-out infinite reverse; }
 
@@ -376,6 +387,50 @@ a:focus-visible, button:focus-visible {
 .icon svg { width: 26px; height: 26px; }
 .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .card p { color: var(--muted); }
+
+
+/* Featured card (DJ Mode): spans the full width of the grid */
+.card-featured {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 36px;
+  background:
+    linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(37, 99, 168, 0.22)),
+    var(--surface);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+.card-featured .icon {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
+  background: var(--gradient);
+  color: #fff;
+  margin-bottom: 0;
+}
+.card-featured .icon svg { width: 34px; height: 34px; }
+.card-featured h3 { font-size: 1.6rem; margin-bottom: 10px; }
+.card-featured p { max-width: 720px; }
+
+.badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(96, 165, 250, 0.16);
+  color: #93c5fd;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* On phones, stack the icon above the text */
+@media (max-width: 600px) {
+  .card-featured { flex-direction: column; align-items: flex-start; padding: 28px; }
+}
 
 
 /* ---------- 7. SCREENSHOT GALLERY ---------- */
